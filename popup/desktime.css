@@ -1,0 +1,27 @@
+html, body {
+	padding: 0px;
+	width: 120px;
+	font-family: Ubuntu;
+	font-weight: thin;
+	color: #39D;
+	margin: 0px;
+}
+#api-form{
+	display: none;
+}
+#input-api-key{
+	width: 86px;
+	margin-left:10px;
+}
+#save-api{
+	margin: 4px 0px 10px 10px;
+	width: 100px;
+	background-color: #39d;
+	border-radius: 4px;
+	text-align: center;
+	color: white;
+	padding: 6px 0px;
+}
+p#time_left{
+	text-align: center;
+}
