@@ -34,13 +34,14 @@ function alertContents() {
     if (httpRequest.status === 200) {
       var user = JSON.parse(httpRequest.responseText);
       if(!user.error)
-        {      var desktime = user.desktimeTime;
-          var remaining = (28800 - user.desktimeTime) / 60;
-          var can_leave = {};
-          can_leave.minutes = Math.floor(remaining % 60);
-          can_leave.hours =  Math.floor(remaining / 60);
-          can_leave.message =  "<b>" + can_leave.hours + "</b> h <b>" + can_leave.minutes + "</b> m";
-          time_left.innerHTML = can_leave.message;
+        { 
+          var desktime = user.desktimeTime;
+          var on_desk_since = user.desktimeTime;
+          var desk_time = {};
+          desk_time.hours =  Math.floor(on_desk_since / 3600);
+          desk_time.minutes = Math.floor((on_desk_since / 60) % 60);
+          desk_time.message =  "<b>" + desk_time.hours + "</b> hours <b>" + desk_time.minutes + "</b> minutes";
+          time_left.innerHTML = desk_time.message;
         }
         else
          time_left.innerHTML = 'Invalid Key'; 
