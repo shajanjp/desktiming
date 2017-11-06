@@ -21,7 +21,9 @@ html, body {
 	text-align: center;
 	color: white;
 	padding: 6px 0px;
+	cursor: pointer;
 }
-p#time_left{
+#time_left{
 	text-align: center;
+	cursor: pointer;
 }
