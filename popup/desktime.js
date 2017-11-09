@@ -13,6 +13,22 @@ if (window.XMLHttpRequest) {
   httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
+function TimeMachine(total_seconds) {
+  this.hours = (total_seconds / 3600).toFixed(0) ;
+  this.minutes = ((total_seconds % 3600) / 60).toFixed(0);
+  this.seconds = (total_seconds % 60).toFixed(0);
+  this.humanize = function() {
+    return this;
+  };
+}
+
+function normalizeTo100(num_array){
+  var numbers = num_array;
+  var ratio = Math.max(...numbers) / 100;
+  return numbers.map(v => Math.round(v / ratio));
+}
+
+var myTime = new TimeMachine(3769);
 function onError(error) {
   alert(error);
 }
