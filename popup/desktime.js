@@ -1,8 +1,8 @@
 var httpRequest;
-var time_left = document.getElementById('time_left');
+var dt = document.getElementById('dt');
+var at = document.getElementById('at');
 var APIform = document.getElementById('api-form');
 var save_api = document.getElementById('save-api');
-
 var storingAPI;
 var API_keey;
 var is_menu_shown = false;
@@ -50,23 +50,25 @@ function alertContents() {
     if (httpRequest.status === 200) {
       var user = JSON.parse(httpRequest.responseText);
       if(!user.error)
-        { 
-          var desktime = user.desktimeTime;
-          var on_desk_since = user.desktimeTime;
-          var desk_time = {};
-          desk_time.hours =  Math.floor(on_desk_since / 3600);
-          desk_time.minutes = Math.floor((on_desk_since / 60) % 60);
-          desk_time.message =  "<b>" + desk_time.hours + "</b> hours <b>" + desk_time.minutes + "</b> minutes";
-          time_left.innerHTML = desk_time.message;
-        }
-        else
-         time_left.innerHTML = 'Invalid Key'; 
-     } else {
-      alert('There was a problem with the request.');
-    }
+      { 
+       var normed = normalizeTo100([user.atWorkTime, user.desktimeTime, 32400]);
+       document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  ''+ normed[0] + ' ' + (100 - normed[0]));
+       document.getElementById("desk-time-graph").setAttribute('stroke-dasharray',  ''+ normed[1] + ' ' + (100 - normed[1]));
+       var on_desk = new TimeMachine(user.desktimeTime);
+       var at_work = new TimeMachine(user.atWorkTime);
+       var on_desk_since = on_desk.humanize();  
+       var at_work_since = at_work.humanize();
+
+       dt.innerHTML = "<b>" + on_desk_since.hours + " : " + on_desk_since.minutes + "</b>";
+       at.innerHTML = "<b>" + at_work_since.hours + " : " + at_work_since.minutes + "</b>";
+     }
+     else
+       time_left.innerHTML = 'Invalid Key';
+   } else {
+    alert('There was a problem with the request.');
   }
 }
-
+}
 
 httpRequest.onreadystatechange = alertContents;
 
@@ -77,5 +79,5 @@ gettingAPI.then((result) => {
   httpRequest.send();
 }, onError);
 
-time_left.addEventListener("click", showForm);
+dt.addEventListener("click", showForm);
 save_api.addEventListener("click", getAPI_key);
