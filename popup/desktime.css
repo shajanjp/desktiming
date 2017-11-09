@@ -23,7 +23,16 @@ html, body {
 	padding: 6px 0px;
 	cursor: pointer;
 }
-#time_left{
+#time-card{
+	margin-top: -20px;
 	text-align: center;
-	cursor: pointer;
+}
+#at{
+	margin-bottom: 0px;
+	color: #39D;
+}
+#dt{
+	margin-top: 0px;
+	margin-bottom: 10px;	
+	color: #3b9;
 }
