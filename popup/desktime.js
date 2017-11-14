@@ -14,9 +14,9 @@ if (window.XMLHttpRequest) {
 }
 
 function TimeMachine(total_seconds) {
-  this.hours = (total_seconds / 3600).toFixed(0) ;
-  this.minutes = ((total_seconds % 3600) / 60).toFixed(0);
-  this.seconds = (total_seconds % 60).toFixed(0);
+  this.hours = parseInt((total_seconds / 3600));
+  this.minutes = parseInt((total_seconds % 3600) / 60);
+  this.seconds = parseInt(total_seconds % 60);
   this.humanize = function() {
     return this;
   };
