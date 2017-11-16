@@ -51,9 +51,10 @@ function alertContents() {
       var user = JSON.parse(httpRequest.responseText);
       if(!user.error)
       { 
-       var normed = normalizeTo100([user.atWorkTime, user.desktimeTime, 32400]);
-       document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  ''+ normed[0] + ' ' + (100 - normed[0]));
-       document.getElementById("desk-time-graph").setAttribute('stroke-dasharray',  ''+ normed[1] + ' ' + (100 - normed[1]));
+       var normed_w = normalizeTo100([user.atWorkTime, 32400]);
+       var normed_d = normalizeTo100([user.desktimeTime, 28800]);
+       document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  ''+ normed_w[0] + ' ' + (100 - normed_w[0]));
+       // document.getElementById("desk-time-graph").setAttribute('stroke-dasharray',  ''+ normed_d[1] + ' ' + (100 - normed_d[1]));
        var on_desk = new TimeMachine(user.desktimeTime);
        var at_work = new TimeMachine(user.atWorkTime);
        var on_desk_since = on_desk.humanize();  

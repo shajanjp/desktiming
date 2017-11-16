@@ -6,19 +6,22 @@
 </head>
 <body>
 	<svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
-		<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-		<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#DDD" stroke-width="3"></circle>
-		<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#39D" stroke-width="3" stroke-dasharray="90 10" stroke-dashoffset="25" id="work-time-graph"></circle>
-		<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#3B7" stroke-width="3" stroke-dasharray="90 10" stroke-dashoffset="25" id="desk-time-graph"></circle>
-	</svg>
-	<div id="time-card">
-		<p id="at">...</p>
-		<p id="dt" title="Click to change Desktime API Key">...</p>
-	</div>
-	<div id="api-form">
-		<input type="text" id='input-api-key' placeholder="API Key">
-		<div id="save-api">Save</div>
-	</div>
-	<script src="desktime.js"></script>
+		<circle class="donut-hole" cx="21" cy="21" r="19" fill="#efefef"></circle>
+		
+		<circle class="donut-ring" cx="21" cy="21" r="17" fill="transparent" stroke="#a3de83" stroke-dasharray="80 20" stroke-dashoffset="21" stroke-width="3" id="work-time-graph"></circle>
+		
+		<circle class="donut-segment" cx="21" cy="21" r="14" fill="transparent" stroke="#2eb872" stroke-width="3" stroke-dasharray="90 10" stroke-dashoffset="35" id="desk-time-graph"></circle> 
+		
+		<circle class="donut-hole" cx="21" cy="21" r="12" fill="#fff"></circle>
+</svg>
+<div id="time-card">
+	<p id="at">...</p>
+	<p id="dt" title="Click to change Desktime API Key">...</p>
+</div>
+<div id="api-form">
+	<input type="text" id='input-api-key' placeholder="API Key">
+	<div id="save-api">Save</div>
+</div>
+<script src="desktime.js"></script>
 </body>
 </html>
