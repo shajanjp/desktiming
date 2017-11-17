@@ -3,6 +3,7 @@ var dt = document.getElementById('dt');
 var at = document.getElementById('at');
 var APIform = document.getElementById('api-form');
 var save_api = document.getElementById('save-api');
+var key_input = document.getElementById('input-api-key');
 var storingAPI;
 var API_keey;
 var is_menu_shown = false;
@@ -75,9 +76,14 @@ httpRequest.onreadystatechange = alertContents;
 var gettingAPI = browser.storage.local.get(null);
 gettingAPI.then((result) => {
   API_keey = result['keey'];
+  if(API_keey == '' || API_keey == null || API_keey == undefined)
+    dt.innerHTML = "Change Key";
+  else
+    key_input.value = API_keey;
   httpRequest.open('GET', 'https://desktime.com/api/v2/json/employee?apiKey=' + API_keey);
   httpRequest.send();
-}, onError);
+})
+.catch(onError);
 
 dt.addEventListener("click", showForm);
 save_api.addEventListener("click", getAPI_key);
