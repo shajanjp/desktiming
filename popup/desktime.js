@@ -23,7 +23,6 @@ function normalizeTo100(num_array){
   return numbers.map(v => Math.round(v / ratio));
 }
 
-var myTime = new TimeMachine(3769);
 function onError(error) {
   at.innerHTML = "Change API"
 }
