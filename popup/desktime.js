@@ -53,8 +53,8 @@ function alertContents() {
       { 
        var normed_w = normalizeTo100([user.atWorkTime, 32400]);
        var normed_d = normalizeTo100([user.desktimeTime, 28800]);
-       document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  ''+ normed_w[0] + ' ' + (100 - normed_w[0]));
-       // document.getElementById("desk-time-graph").setAttribute('stroke-dasharray',  ''+ normed_d[1] + ' ' + (100 - normed_d[1]));
+       document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  '' + normed_w[0] + ' ' + (100 - normed_w[0]));
+       document.getElementById("desk-time-graph").setAttribute('stroke-dasharray',  '' + normed_d[0] + ' ' + (100 - normed_d[0]));
        var on_desk = new TimeMachine(user.desktimeTime);
        var at_work = new TimeMachine(user.atWorkTime);
        var on_desk_since = on_desk.humanize();  
