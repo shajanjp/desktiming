@@ -26,12 +26,16 @@ html, body {
 	margin-top: -20px;
 	text-align: center;
 }
-#at{
+#at,
+#at > a{
 	margin-bottom: 0px;
 	color: #a3de83;
+	text-decoration: none;
+	cursor: pointer;
 }
 #dt{
 	margin-top: 0px;
 	margin-bottom: 10px;	
-	color: #2eb872;
+	color: #2eb872;	
+	cursor: pointer;
 }
