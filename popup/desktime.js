@@ -24,7 +24,7 @@ function normalizeTo100(num_array){
 
 var myTime = new TimeMachine(3769);
 function onError(error) {
-  alert(error);
+  at.innerHTML = "Change API"
 }
 
 function showForm(){
@@ -32,10 +32,11 @@ function showForm(){
 }
 
 function getAPI_key(){
-  var key_from_user = document.getElementById('input-api-key').value;
+  key_from_user = key_input.value;
   storingAPI = browser.storage.local.set({ 'keey' : key_from_user });
   storingAPI.then(() => {
-  }, onError);
+  })
+  .catch(onError);
 }
 
 function alertContents() {
