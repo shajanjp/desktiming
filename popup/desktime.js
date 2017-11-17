@@ -7,12 +7,6 @@ var storingAPI;
 var API_keey;
 var is_menu_shown = false;
 
-if (window.XMLHttpRequest) { 
-  httpRequest = new XMLHttpRequest();
-} else if (window.ActiveXObject) { 
-  httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
 function TimeMachine(total_seconds) {
   this.hours = parseInt((total_seconds / 3600));
   this.minutes = parseInt((total_seconds % 3600) / 60);
@@ -48,8 +42,7 @@ function alertContents() {
   if (httpRequest.readyState === XMLHttpRequest.DONE) {
     if (httpRequest.status === 200) {
       var user = JSON.parse(httpRequest.responseText);
-      if(!user.error)
-      { 
+      if(!user.error) { 
        var normed_w = normalizeTo100([user.atWorkTime, 32400]);
        var normed_d = normalizeTo100([user.desktimeTime, 28800]);
        document.getElementById("work-time-graph").setAttribute('stroke-dasharray',  '' + normed_w[0] + ' ' + (100 - normed_w[0]));
@@ -68,6 +61,12 @@ function alertContents() {
     alert('There was a problem with the request.');
   }
 }
+}
+
+if (window.XMLHttpRequest) { 
+  httpRequest = new XMLHttpRequest();
+} else if (window.ActiveXObject) { 
+  httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
 httpRequest.onreadystatechange = alertContents;
