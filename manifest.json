@@ -4,10 +4,10 @@
   "manifest_version": 2,
   "author": "Shajan Jacob",
   "name": "Desktiming",
-  "version": "1.5",
+  "version": "1.6",
   "homepage_url": "https://github.com/shajanjp/desktiming",
   "icons": {
-    "48": "icons/desktime-logo.png"
+    "64": "icons/clock.png"
   },
 
   "permissions": [
@@ -16,11 +16,11 @@
   ],
 
   "browser_action": {
-    "default_icon": "icons/desktime-logo.png",
+    "default_icon": "icons/clock.png",
     "theme_icons": [{
-      "light": "icons/desktime-logo.png",
-      "dark": "desktime-logo.png",
-      "size": 32
+      "light": "icons/clock.png",
+      "dark": "icons/clock.png",
+      "size": 64
     }],
     "default_title": "Desktiming",
     "default_popup": "popup/desktime.html"
