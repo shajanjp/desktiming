@@ -41,7 +41,6 @@ function getAPI_key(){
   var key_from_user = document.getElementById('input-api-key').value;
   storingAPI = browser.storage.local.set({ 'keey' : key_from_user });
   storingAPI.then(() => {
-    // alert("store success");
   }, onError);
 }
 
